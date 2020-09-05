@@ -1,0 +1,13 @@
+<app-widget>
+  <span title-widget>{{'label.last.visits' | translate}}  <small>Vistas generadas random</small></span>
+
+  <div content-widget>
+    <!--Grafica usando PrimeNG-->
+    <p-chart type="line"
+             [data]="data"
+             [responsive]="true"
+             [options]="options"></p-chart>
+  </div>
+
+  <span footer-widget>{{'label.info.widget.visits' | translate}}</span>
+</app-widget>

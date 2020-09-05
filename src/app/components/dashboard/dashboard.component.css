@@ -1,0 +1,23 @@
+#dashboard {
+  overflow: auto;
+  padding: 30px;
+  background: #f1f1f1;
+
+
+}
+
+/* Como maximo 578 px hacia atras*/
+@media (max-width: 576px) {
+  #dashboard {
+    /* Cuadno sea para movil, le quita lo que mida 120px del menu comprimido*/
+    height: calc(100vh - 120px);
+  }
+}
+
+
+/* Desde 578 en adelante*/
+@media (min-width: 576px) {
+  #dashboard {
+    height: 100vh;
+  }
+}
