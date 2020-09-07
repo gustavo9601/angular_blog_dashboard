@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Category} from '../models/category';
+import {Observable} from 'rxjs';
+import {ICategory} from '../interfaces/icategory';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +25,15 @@ export class CategoryService {
 
     // Insertando el objeto en Firebase
     categoryRefId.set(category.getData());
+  }
+
+  getCategories(): Observable<ICategory[]> {
+    return this.afd.list<ICategory>('/categories').valueChanges();
+  }
+
+  deleteCategories(ids: string[]) {
+    _.forEach(ids, id => {
+      this.afd.object("/categories/" + id).remove();
+    });
   }
 }

@@ -27,6 +27,8 @@ import {ChartModule} from 'primeng/chart';
 import { AddCategoryComponent } from './components/dashboard/categories/add-category.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TableModule} from 'primeng/table';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 
@@ -74,7 +76,9 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     ChartModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    TableModule,
+    CheckboxModule
   ],
   providers: [
     TranslateService,
