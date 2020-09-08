@@ -1,0 +1,17 @@
+<app-widget>
+  <span title-widget>{{'label.thumbnail' | translate}}</span>
+
+  <div content-widget>
+    <img class="img-fluid" [src]="img" *ngIf="img" alt="">
+    <input type="file" class="mw-100" accept=".png, .jpg" (change)="uploadFile($event)" >
+  </div>
+
+  <span footer-widget>{{'label.info.widget.thumbnail' | translate}}</span>
+</app-widget>
+
+
+<div class="h-100 overlay" *ngIf="loading">
+  <div class="spinner">
+    <img src="assets/img/spinner.gif" alt="">
+  </div>
+</div>

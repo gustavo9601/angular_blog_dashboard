@@ -1,3 +1,42 @@
-<p>
-  posts works!
-</p>
+<div class="row" id="posts">
+  <div class="col-12">
+    <div class="row no-gutters">
+      <div class="col-12 border-bottom pl-0 pb-2">
+        <span class="title-section mr-4">{{'label.posts' | translate}}</span>
+        <button class="btn btn-primary btn-sm"
+                [routerLink]="['/add-post']">{{'label.add.post' | translate}}</button>
+      </div>
+    </div>
+
+
+    <div class="row no-gutters mt-4">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <span>{{'label.search.post' | translate}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 input-group">
+            <input type="text" class="form-control" id="search" #search (keydown.enter)="updateWord(search.value)"
+                   [placeholder]="'label.3.characters' | translate">
+
+            <span class="input-group-btn">
+              <button class="btn btn-primary rounded-0" (click)="updateWord(search.value)">{{'label.search' | translate}}</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<div class="h-100" *ngIf="!showPost">
+  <div class="spinner">
+    <img src="assets/img/spinner.gif" alt="">
+  </div>
+</div>

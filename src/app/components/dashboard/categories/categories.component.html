@@ -31,7 +31,10 @@
     <!--  {{selectCategories | json}}-->
     <div class="row no-gutters mt-4">
       <div class="col-12">
-        <p-table [columns]="cols" [value]="categories" [responsive]="true">
+        <p-table [columns]="cols"
+                 [value]="categories"
+                 [responsive]="true">
+          <!--let-columns es una variable de template que almacena el columns valor de la tabla-->
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th *ngFor="let column of columns">
@@ -40,6 +43,7 @@
             </tr>
           </ng-template>
 
+          <!--let-category es una variable de template que almacena el value de la tabla-->
           <ng-template pTemplate="body" let-category>
             <tr>
               <td>
@@ -48,11 +52,14 @@
               </td>
               <td>
                 <span class="ui-column-title">{{'label.name.category' | translate}}</span>
-                <span>{{category.name}}</span>
+                <!--
+                appHighligth // directiva para colorear las concidencias en el html de la busqueda
+                -->
+                <span appHighligth [search]="searchWord" >{{category.name}}</span>
               </td>
               <td>
                 <span class="ui-column-title">{{'label.description.category' | translate}}</span>
-                <span>{{category.description}}</span>
+                <span appHighligth [search]="searchWord" >{{category.description}}</span>
               </td>
             </tr>
           </ng-template>

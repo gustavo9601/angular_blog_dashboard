@@ -6,6 +6,9 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularEditorModule} from '@kolkov/angular-editor';
+
 
 // Pipe
 import {TranslatePipe} from './pipes/translate.pipe';
@@ -21,15 +24,18 @@ import {CategoriesComponent} from './components/dashboard/categories/categories.
 import {ResumeComponent} from './components/dashboard/resume/resume.component';
 import {WidgetComponent} from './components/dashboard/widget/widget.component';
 import {WidgetStadisticsComponent} from './components/dashboard/widget/widget-stadistics/widget-stadistics.component';
-import { WidgetLastCommentsComponent } from './components/dashboard/widget/widget-last-comments/widget-last-comments.component';
-import { WidgetLastVisitsComponent } from './components/dashboard/widget/widget-last-visits/widget-last-visits.component';
+import {WidgetLastCommentsComponent} from './components/dashboard/widget/widget-last-comments/widget-last-comments.component';
+import {WidgetLastVisitsComponent} from './components/dashboard/widget/widget-last-visits/widget-last-visits.component';
 import {ChartModule} from 'primeng/chart';
-import { AddCategoryComponent } from './components/dashboard/categories/add-category.component';
+import {AddCategoryComponent} from './components/dashboard/categories/add-category.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TableModule} from 'primeng/table';
 import {CheckboxModule} from 'primeng/checkbox';
-
+import {HighligthDirective} from './directives/highligth.directive';
+import {AddPostsComponent} from './components/dashboard/posts/add-posts.component';
+import {WidgetSelectCategoryComponent} from './components/dashboard/widget/widget-select-category/widget-select-category.component';
+import {WidgetUploadThumbnailComponent} from './components/dashboard/widget/widget-upload-thumbnail/widget-upload-thumbnail.component';
 
 
 export function translateFactory(provider: TranslateService) {
@@ -66,6 +72,10 @@ const firebaseConfig = {
     WidgetLastCommentsComponent,
     WidgetLastVisitsComponent,
     AddCategoryComponent,
+    HighligthDirective,
+    AddPostsComponent,
+    WidgetSelectCategoryComponent,
+    WidgetUploadThumbnailComponent,
 
   ],
   imports: [
@@ -74,11 +84,13 @@ const firebaseConfig = {
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     ChartModule,
     FormsModule,
     NgbModule,
     TableModule,
-    CheckboxModule
+    CheckboxModule,
+    AngularEditorModule
   ],
   providers: [
     TranslateService,

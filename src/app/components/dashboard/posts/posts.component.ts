@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Post} from '../../../models/post';
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  public showPost: boolean;
+
+
+  constructor() {
+    this.showPost = true;
+  }
 
   ngOnInit() {
   }

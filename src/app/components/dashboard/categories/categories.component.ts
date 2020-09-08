@@ -51,5 +51,6 @@ export class CategoriesComponent implements OnInit {
 
   updateWord(search_value) {
     console.log('search_value', search_value);
+    this.searchWord = search_value;
   }
 }
