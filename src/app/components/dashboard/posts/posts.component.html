@@ -29,6 +29,65 @@
       </div>
     </div>
 
+    <div class="row no-gutters mt-4">
+      <div class="col-12">
+        <p-table [columns]="cols"
+                 [value]="posts"
+                 [responsive]="true">
+          <!--let-columns es una variable de template que almacena el columns valor de la tabla-->
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let column of columns">
+                {{column.header}}
+              </th>
+            </tr>
+          </ng-template>
+
+          <!--let-post es una variable de template que almacena el value de la tabla-->
+          <ng-template pTemplate="body" let-post>
+            <tr>
+              <td>
+                <span class="ui-column-title">{{'label.select.post' | translate}}</span>
+                <p-checkbox name="categories" [value]="post.id" [(ngModel)]="selectedPosts"></p-checkbox>
+              </td>
+              <td>
+                <span class="ui-column-title">{{'label.title' | translate}}</span>
+                <!--
+                appHighligth // directiva para colorear las concidencias en el html de la busqueda
+                -->
+                <span appHighligth [search]="searchWord" >{{post.title}}</span>
+              </td>
+              <td>
+                <span class="ui-column-title">{{'label.date.post' | translate}}</span>
+                <span appHighligth [search]="searchWord" >{{post.date | date:'dd/MM/yyy'}}</span>
+              </td>
+              <td>
+                <span class="ui-column-title">{{'label.categories' | translate}}</span>
+                <ng-container *ngIf="!post.categories || post.categories.length === 0">
+                  <span>{{'label.no.categories' | translate}}</span>
+                </ng-container>
+                <ng-container *ngIf="post.categories && post.categories.length > 0">
+                <!--Categories-->
+                  <span appHighligth [search]="searchWord">{{post.categories | join:'name':', '}}</span>
+
+                </ng-container>
+              </td>
+              <td>
+                <span class="ui-column-title">{{'label.thumbnail' | translate}}</span>
+                <span *ngIf="post.img"><img [src]="post.img" class="thumbnail" alt=""></span>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <!--Solo aparecerea el elemento si se han seleccionado filas para eliminar-->
+    <div class="row no-gutters mt-4" *ngIf="selectedPosts?.length > 0">
+      <div class="col-12">
+        <button class="btn btn-primary" (click)="deletePosts();">{{'label.delete.posts' | translate}}</button>
+      </div>
+    </div>
 
 
   </div>

@@ -22,7 +22,7 @@
                      #title="ngModel"
                      name="title"
                      [(ngModel)]="post.title"
-                     [ngClass]="{'is-valid': title.dirty && !title.erros, 'is-invalid':title.dirty && title.errors}"
+                     [ngClass]="{'is-valid': title.dirty && !title.errors, 'is-invalid':title.dirty && title.errors}"
                      type="text" class="form-control">
               <div class="valid-feedback">
                 <span>{{'label.success' | translate}}</span>

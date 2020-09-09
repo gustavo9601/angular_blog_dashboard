@@ -8,7 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularEditorModule} from '@kolkov/angular-editor';
-
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 // Pipe
 import {TranslatePipe} from './pipes/translate.pipe';
@@ -36,6 +36,7 @@ import {HighligthDirective} from './directives/highligth.directive';
 import {AddPostsComponent} from './components/dashboard/posts/add-posts.component';
 import {WidgetSelectCategoryComponent} from './components/dashboard/widget/widget-select-category/widget-select-category.component';
 import {WidgetUploadThumbnailComponent} from './components/dashboard/widget/widget-upload-thumbnail/widget-upload-thumbnail.component';
+import { JoinPipe } from './pipes/join.pipe';
 
 
 export function translateFactory(provider: TranslateService) {
@@ -76,6 +77,7 @@ const firebaseConfig = {
     AddPostsComponent,
     WidgetSelectCategoryComponent,
     WidgetUploadThumbnailComponent,
+    JoinPipe,
 
   ],
   imports: [
@@ -85,6 +87,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    AngularFireAuthModule,
     ChartModule,
     FormsModule,
     NgbModule,

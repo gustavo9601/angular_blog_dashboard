@@ -6,7 +6,6 @@ export class Post implements IPost {
   constructor(data) {
     _.set(this, 'data', data);
   }
-
   /*Getters*/
   get id() {
     return _.get(this, 'data.id');
@@ -42,7 +41,7 @@ export class Post implements IPost {
     _.set(this, 'data.title', value);
   }
 
-  set date(value: Date) {
+  set date(value: string) {
     _.set(this, 'data.date', value);
   }
 

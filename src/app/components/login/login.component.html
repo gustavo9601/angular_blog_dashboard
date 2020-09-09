@@ -1,3 +1,55 @@
-<p>
-  login works!
-</p>
+<div class="row mt-4 mb-4" id="login">
+  <div class="col-12">
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <img width="75" [src]="_configService.logoLogin" alt="">
+        <span class="h1 ml-2">{{_configService.nameSite}}</span>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="showLoginError">
+      <div class="col-12">
+        <div class="alert alert-danger">
+          <strong>{{'label.login.error' | translate}}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <form #formLogin="ngForm" (ngSubmit)="checkLogin()">
+          <div class="row form-group">
+
+            <div class="col-12">
+              <label for="email">{{'label.email' | translate}}</label>
+              <input type="email" class="form-control"
+                     id="email" required
+                     name="email"
+                     #email="ngModel"
+                     [(ngModel)]="infoLogin.email">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="password">{{'label.pass' | translate}}</label>
+              <input type="password" class="form-control" id="password"
+                     required name="password"
+                     #password="ngModel"
+                     [(ngModel)]="infoLogin.password">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-12">
+              <button [disabled]="formLogin.invalid" class="btn btn-primary btn-block"
+                      type="submit">{{'label.login' | translate}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

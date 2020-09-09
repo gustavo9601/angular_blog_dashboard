@@ -1,7 +1,7 @@
 export interface IPost {
   id: string,
   title: string,
-  date: Date,
+  date: string,
   content: string,
   categories: string[],
   img: string,
